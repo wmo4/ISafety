@@ -16,32 +16,27 @@ def chat():
         return jsonify({"response": "No input received."})
 
     try:
-        # Stream response from Ollama
-        with requests.post(
+        response = requests.post(
             "http://localhost:11434/api/generate",
             json={"model": "phi3", "prompt": user_input},
-            stream=True,
-        ) as response:
+            stream=True
+        )
 
-            full_reply = ""
-            for line in response.iter_lines():
-                if not line:
-                    continue
-                decoded = line.decode("utf-8")
-                if decoded.startswith("data: "):
-                    data = decoded[6:]
-                    if data.strip() == "[DONE]":
-                        break
-                    try:
-                        obj = json.loads(data)
-                        if "response" in obj:
-                            full_reply += obj["response"]
-                    except Exception:
-                        continue
+        full_reply = ""
+        for line in response.iter_lines():
+            if not line:
+                continue
+            try:
+                data = json.loads(line.decode("utf-8"))
+                if "response" in data:
+                    full_reply += data["response"]
+                if data.get("done"):
+                    break
+            except json.JSONDecodeError:
+                continue
 
-        # If Ollama didn’t return anything, say so
         if not full_reply.strip():
-            full_reply = "⚠️ Ollama did not return a response."
+            full_reply = "⚠️ No text received from Ollama."
 
         return jsonify({"response": full_reply.strip()})
 
