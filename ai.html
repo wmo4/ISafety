@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Local AI (Phi-3)</title>
-    <link rel="stylesheet" href="ai.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phi3 Local Chat</title>
+  <link rel="stylesheet" href="ai.css" />
 </head>
 <body>
-    <div class="chat-container">
-        <h1>🧠 Local AI Assistant (Phi-3)</h1>
-        <div id="chat-box"></div>
-        <div class="input-area">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
+  <div class="chat-container">
+    <div class="chat-box" id="chat-box"></div>
+
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Type your message..." autofocus />
+      <button id="send-btn">Send</button>
     </div>
-    <script src="ai.js"></script>
+  </div>
+
+  <script src="ai.js"></script>
 </body>
 </html>
