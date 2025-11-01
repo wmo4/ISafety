@@ -16,32 +16,37 @@ def chat():
         return jsonify({"response": "No input received."})
 
     try:
-        # Ask Ollama for a streamed response
-        response = requests.post(
+        # Stream response from Ollama
+        with requests.post(
             "http://localhost:11434/api/generate",
             json={"model": "phi3", "prompt": user_input},
-            stream=True
-        )
+            stream=True,
+        ) as response:
 
-        full_reply = ""
-        for line in response.iter_lines():
-            if not line:
-                continue
-            # Each line starts with "data: "
-            if line.decode("utf-8").startswith("data: "):
-                data = line.decode("utf-8")[6:]
-                if data.strip() == "[DONE]":
-                    break
-                try:
-                    json_data = json.loads(data)
-                    full_reply += json_data.get("response", "")
-                except json.JSONDecodeError:
+            full_reply = ""
+            for line in response.iter_lines():
+                if not line:
                     continue
+                decoded = line.decode("utf-8")
+                if decoded.startswith("data: "):
+                    data = decoded[6:]
+                    if data.strip() == "[DONE]":
+                        break
+                    try:
+                        obj = json.loads(data)
+                        if "response" in obj:
+                            full_reply += obj["response"]
+                    except Exception:
+                        continue
 
-        return jsonify({"response": full_reply.strip() or "No response generated."})
+        # If Ollama didn’t return anything, say so
+        if not full_reply.strip():
+            full_reply = "⚠️ Ollama did not return a response."
+
+        return jsonify({"response": full_reply.strip()})
 
     except Exception as e:
         return jsonify({"response": f"Error: {str(e)}"})
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
