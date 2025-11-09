@@ -11,7 +11,7 @@ html {
     color: var(--color);
     cursor: url(icons8-cursor-32.svg), auto;
     transition: background-color 0.3s, color 0.3s;
-    text-align: left;
+    text-align: center;
 }
 .heading {
     text-align: center;
