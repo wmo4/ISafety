@@ -1,5 +1,5 @@
 :root {
-    --bg-color: rgb(54,54,54);
+    --bg-color: rgb(54, 54, 54);
     --color: rgb(30, 144, 255);
 }
 html[data-theme="light"] {
@@ -43,13 +43,15 @@ button {
     padding: 30px;
     border: 1px solid #111;
     border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 230, 255, 0.2);
+    box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
     animation: glowPulse 3s ease-in-out infinite;
+    transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 .intro span {
     text-shadow: 0 0 8px #00e6ff;
     margin-bottom: 20px;
     font-size: 1.8rem;
+    animation: textGlow 3s ease-in-out infinite;
 }
 .intro p {
     font-size: 1rem;
@@ -57,13 +59,21 @@ button {
     margin-bottom: 15px;
 }
 @keyframes glowPulse {
-  0% {
-    box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 35px rgba(0, 230, 255, 0.6);
-  }
-  100% {
-    box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
-  }
+    0% {
+        box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 35px rgba(30, 144, 255, 0.6);
+    }
+    100% {
+        box-shadow: 0 0 15px rgba(30, 144, 255, 0.3);
+    }
+}
+@keyframes textGlow {
+    0%, 100% {
+        text-shadow: 0 0 10px #00e6ff;
+    }
+    50% {
+        text-shadow: 0 0 20px #00e6ff;
+    }
 }
