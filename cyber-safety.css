@@ -37,7 +37,21 @@ button {
     background-color: var(--color);
 }
 .intro {
+    max-width: 800px;
+    margin: 60px auto;
     text-align: center;
-    padding: 2rem;
-    transition: transform 0.5s ease-in-out;
+    padding: 30px;
+    border: 1px solid #111;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 230, 255, 0.2);
+}
+.intro span {
+    text-shadow: 0 0 8px #00e6ff;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+.intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
 }
