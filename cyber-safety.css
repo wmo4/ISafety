@@ -1,20 +1,38 @@
 :root {
-    --background-color: black;
-    --color: white;
+    --bg-color: rgb(54,54,54);
+    --color: rgb(30, 144, 255);
 }
-[data-theme="dark"] {
-    --background-color: white;
-    --color: black;
+html[data-theme="light"] {
+    --bg-color: rgba(211, 211, 211, 0.8);
+    --color: rgb(0, 100, 200);
 }
-body {
-    background-color: var(--background-color);
+html {
+    background-color: var(--bg-color);
     color: var(--color);
-    cursor: auto;
+    cursor: url(icons8-cursor-32.svg), auto;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+}
+.heading {
+    text-align: center;
+    padding: 4rem;
+    border: 0.3125rem solid rgb(0, 128, 128);
+    border-radius: 0.3125rem;
+    margin-left: 16rem;
+    margin-right: 16rem;
+    transition: transform 0.5s ease-in-out;
+}
+.heading:hover {
+    transform: scale(1.1);
+}
+a {
+    cursor: url(icons8-hand-cursor-32.svg), auto;
+    color: yellow;
 }
 button {
-    background-color: var(--background-color);
+    cursor: url(icons8-hand-cursor-32.svg), auto;
     position: absolute;
-    right: 1px;
-    top: 5px;
-    cursor: pointer;
+    right: 0rem;
+    top: 0rem;
+    background-color: var(--color);
 }
