@@ -7,6 +7,25 @@
         <title> Internet Safety </title>
         <link rel="stylesheet" type="text/css" href="cyber-safety.css" >
         <link rel="icon" type="text/x-icon" href="favicon.ico">
+        <script>
+            function isMobileDevice() {
+                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
+                const screenWidth = window.screen.width;
+                const isSmallScreen = screenWidth <= 768;
+                return isMobile || isSmallScreen;
+            }
+
+            if (isMobileDevice()) {
+            // Define the specific target URL for the warning page
+                const warningPageUrl = "https://isafety0.github.io/ISafety/warning.html";
+            
+            // Check if the user is already on the target warning page to prevent redirect loops
+                if (window.location.href !== warningPageUrl && window.location.origin + window.location.pathname !== warningPageUrl) {
+                    window.location.href = warningPageUrl;
+                }
+            }
+        </script>
     </head>
     <body>
         <button class="theme"> Toggle Theme &#127774; / &#x1F319; </button>
