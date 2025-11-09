@@ -38,6 +38,6 @@ button {
 }
 .intro {
     text-align: center;
-    padding: 4rem;
+    padding: 2rem;
     transition: transform 0.5s ease-in-out;
 }
