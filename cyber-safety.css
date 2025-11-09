@@ -44,6 +44,7 @@ button {
     border: 1px solid #111;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 230, 255, 0.2);
+    animation: glowPulse 3s ease-in-out infinite;
 }
 .intro span {
     text-shadow: 0 0 8px #00e6ff;
@@ -54,4 +55,15 @@ button {
     font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 15px;
+}
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 230, 255, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(0, 230, 255, 0.3);
+  }
 }
