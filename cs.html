@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en", data-theme="dark">
+    <head>
+        <meta charset="UTF-8"> 
+        <meta name="Internet Safety" content="Learn how to stay safe while using the Internet!">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Internet Safety </title>
+        <link rel="stylesheet" type="text/css" href="cyber-safety.css" >
+        <link rel="icon" type="text/x-icon" href="favicon.ico">
+    </head>
+    <body>
+        <button class="theme"> Toggle Theme &#127774; / &#x1F319; </button>
+        <div class="heading">
+            <span style="font-size: 4rem; "><b>Be The Firewall!&#128293;</b> </span> <br>
+            <span style="font-size: 1.5rem; "> <i>Because real firewalls don’t just run on code — they run on awareness.</i> </span>
+        </div>
+        <div class="intro">
+            <span style="font-size: 3rem;"><pre>🛡️Internet Safety🔒</pre></span>
+            <p style="font-size:1.5rem;"> The internet connects us to knowledge, creativity, and people around the world —but it also <br>
+                opens doors to risks like scams, identity theft, and cyberbullying. Internet safety means <br>
+                protecting yourself, your data, and your digital footprint from these online dangers.
+            </p>
+        </div>
+        <script>
+            const themeToggleButton = document.querySelector('.theme');
+            const htmlElement = document.documentElement;
+
+            function setTheme(theme) {
+                htmlElement.setAttribute('data-theme', theme);
+                localStorage.setItem('theme', theme);
+            }
+
+            themeToggleButton.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme) {
+                    setTheme(savedTheme);
+                }
+            });
+        </script>
+    </body>
+</html>
