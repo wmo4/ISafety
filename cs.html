@@ -1,65 +1,200 @@
 <!DOCTYPE html>
-<html lang="en", data-theme="dark">
-    <head>
-        <meta charset="UTF-8"> 
-        <meta name="Internet Safety" content="Learn how to stay safe while using the Internet!">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Internet Safety </title>
-        <link rel="stylesheet" type="text/css" href="cyber-safety.css" >
-        <link rel="icon" type="text/x-icon" href="favicon.ico">
-        <script>
-            function isMobileDevice() {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);
-                const screenWidth = window.screen.width;
-                const isSmallScreen = screenWidth <= 768;
-                return isMobile || isSmallScreen;
-            }
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn how to stay safe, secure, and aware online with Internet Safety — Be The Firewall 🔥" />
+  <title>Internet Safety — Be The Firewall 🔥</title>
+  <link rel="stylesheet" href="cyber-safety.css" />
+  <script defer src="cyber-safety.js"></script>
+</head>
+<body>
+  <button id="theme-toggle" class="theme" aria-label="Toggle theme">
+    Toggle Theme 🌞 / 🌙
+  </button>
 
-            if (isMobileDevice()) {
-            // Define the specific target URL for the warning page
-                const warningPageUrl = "https://wmo4.github.io/ISafety/warning.html";
-            
-            // Check if the user is already on the target warning page to prevent redirect loops
-                if (window.location.href !== warningPageUrl && window.location.origin + window.location.pathname !== warningPageUrl) {
-                    window.location.href = warningPageUrl;
-                }
-            }
-        </script>
-    </head>
-    <body>
-        <button class="theme"> Toggle Theme &#127774; / &#x1F319; </button>
-        <div class="heading">
-            <span style="font-size: 4rem; "><b>Be The Firewall!&#128293;</b> </span> <br>
-            <span style="font-size: 1.5rem; "> <i>Because real firewalls don’t just run on code — they run on awareness.</i> </span>
-        </div>
-        <div class="intro">
-            <span><pre>🛡️Internet Safety🔒</pre></span>
-            <p> The internet connects us to knowledge, creativity, and people around the world —but it also opens doors to risks like scams, identity theft, and
-                cyberbullying. Internet safety means protecting yourself, your data, and your digital footprint from these online dangers.
-            </p>
-        </div>
-        <script>                //Theme Toggle Scripts
-            const themeToggleButton = document.querySelector('.theme');
-            const htmlElement = document.documentElement;
+  <!-- Sidebar Navigation -->
+  <nav class="sidebar">
+    <ul>
+      <li><a href="#intro">What Is Internet Safety?</a></li>
+      <li><a href="#threats">Understanding Online Threats</a></li>
+      <li><a href="#protection">Protecting Yourself Online</a></li>
+      <li><a href="#privacy">Maintaining Privacy Online</a></li>
+      <li><a href="#vpn">VPNs, Antivirus & Safe Tools</a></li>
+      <li><a href="#awareness">Building Cyber Awareness</a></li>
+      <li><a href="#footer">Learn More</a></li>
+    </ul>
+  </nav>
 
-            function setTheme(theme) {
-                htmlElement.setAttribute('data-theme', theme);
-                localStorage.setItem('theme', theme);
-            }
+  <header>
+    <h1>Be The Firewall 🔥</h1>
+    <p class="subtitle"><i>Because real firewalls don’t just run on code — they run on awareness.</i></p>
+  </header>
 
-            themeToggleButton.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                setTheme(newTheme);
-            });
+  <main>
 
-            document.addEventListener('DOMContentLoaded', () => {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    setTheme(savedTheme);
-                }
-            });
-        </script>
-    </body>
+    <!-- INTRO -->
+    <section id="intro">
+      <h2>What Is Internet Safety?</h2>
+      <p>
+        The internet connects over <strong>5 billion people</strong> worldwide. We chat, learn, shop, and work online — but every click leaves a trace. 
+        <strong>Internet Safety</strong> means being smart, alert, and protected while exploring the digital world.
+      </p>
+      <p>
+        More than <strong>80% of cyberattacks</strong> begin with human mistakes — not fancy code. Awareness makes you your own firewall — 
+        you decide what to allow and what to block.
+      </p>
+      <blockquote>⚡ Be alert, be informed, and <strong>Be The Firewall 🔥</strong>.</blockquote>
+    </section>
+
+    <!-- THREATS -->
+    <section id="threats">
+      <h2>Understanding Online Threats</h2>
+      <p>Before defending yourself, it’s important to know what’s out there. Here are the most common online dangers users face today:</p>
+
+      <h3>🎭 Phishing</h3>
+      <p>
+        Phishing emails or messages pretend to be from legitimate companies or contacts to steal your data. 
+        These can lead to fake login pages or malware downloads. Always double-check sender addresses and URLs.
+      </p>
+      <p><strong>Example:</strong> “Your account has been locked. Click here to verify.” – <em>Don’t click it.</em></p>
+
+      <h3>💣 Malware</h3>
+      <p>
+        Malware includes viruses, ransomware, trojans, and spyware. It can steal information, encrypt files, or even hijack your computer. 
+        Avoid downloading from untrusted sites and keep your system updated.
+      </p>
+
+      <h3>🧬 Identity Theft</h3>
+      <p>
+        Identity theft happens when criminals use your personal data (like your name, date of birth, or passwords) for fraud or impersonation. 
+        Limit what you share online and monitor your accounts regularly.
+      </p>
+
+      <h3>🕵️‍♂️ Social Engineering</h3>
+      <p>
+        These attacks target your emotions — fear, curiosity, or urgency — to make you act quickly. 
+        If something feels “too urgent,” it’s probably a trick.
+      </p>
+
+      <h3>💬 Cyberbullying</h3>
+      <p>
+        Online harassment, threats, or spreading rumors can affect anyone. 
+        Protect yourself by blocking bullies, not engaging, and reporting abusive behavior.
+      </p>
+    </section>
+
+    <!-- PROTECTION -->
+    <section id="protection">
+      <h2>Protecting Yourself Online</h2>
+      <p>Staying safe online isn’t complicated — it’s about habits. Here’s how you can build digital defense:</p>
+
+      <h3>🔑 Passwords & Authentication</h3>
+      <ul>
+        <li>Use <strong>unique and complex passwords</strong> for every account.</li>
+        <li>Use password managers like <em>Bitwarden</em> or <em>1Password</em>.</li>
+        <li>Enable <strong>Two-Factor Authentication (2FA)</strong> wherever possible.</li>
+        <li>Change passwords regularly and avoid reusing old ones.</li>
+      </ul>
+
+      <h3>🧭 Secure Browsing</h3>
+      <ul>
+        <li>Stick to trusted browsers like <em>Firefox</em>, <em>Brave</em>, or <em>Edge</em>.</li>
+        <li>Check for the <strong>HTTPS</strong> padlock before entering data.</li>
+        <li>Use privacy extensions like <em>uBlock Origin</em> or <em>Privacy Badger</em>.</li>
+        <li>Avoid free downloads from sketchy sites or torrent sources.</li>
+      </ul>
+
+      <h3>📱 Safe Social Media Use</h3>
+      <ul>
+        <li>Don’t share personal details like your location, school, or contact info publicly.</li>
+        <li>Adjust your privacy settings — limit who can view or tag you.</li>
+        <li>Think twice before posting anything permanent.</li>
+      </ul>
+    </section>
+
+    <!-- PRIVACY -->
+    <section id="privacy">
+      <h2>Maintaining Privacy Online</h2>
+      <p>Privacy isn’t just about hiding data — it’s about controlling who gets to see it. 
+        Every app, website, and service collects information, so make your privacy decisions wisely.</p>
+
+      <h3>🔒 Browser Privacy</h3>
+      <ul>
+        <li>Clear cookies and history often.</li>
+        <li>Use incognito or private windows for sensitive tasks.</li>
+        <li>Disable unnecessary permissions for sites (like camera or location).</li>
+      </ul>
+
+      <h3>📵 App Permissions</h3>
+      <ul>
+        <li>Review app permissions regularly on your phone.</li>
+        <li>Deny access to camera, mic, or storage unless required.</li>
+      </ul>
+
+      <h3>🧩 Tracking and Ads</h3>
+      <ul>
+        <li>Use browsers that block trackers or install extensions that do.</li>
+        <li>Opt out of personalized ads whenever possible.</li>
+      </ul>
+    </section>
+
+    <!-- VPN AND SECURITY TOOLS -->
+    <section id="vpn">
+      <h2>VPNs, Antivirus & Safe Tools</h2>
+      <p>Protecting your device is as important as protecting yourself. 
+        Here are trusted tools that help secure your connection and data:</p>
+
+      <h3>🌐 VPNs (Virtual Private Networks)</h3>
+      <p>VPNs encrypt your connection, hiding your data from hackers and even your internet provider.</p>
+      <ul>
+        <li><strong>Free & Trusted:</strong> ProtonVPN, Windscribe, AtlasVPN.</li>
+        <li><strong>Paid & Secure:</strong> NordVPN, Surfshark, ExpressVPN.</li>
+      </ul>
+
+      <h3>🦠 Antivirus & Anti-Malware</h3>
+      <ul>
+        <li><strong>Free:</strong> Windows Defender, Avast, Malwarebytes Free.</li>
+        <li><strong>Paid:</strong> Bitdefender, Kaspersky, ESET.</li>
+        <li>Run regular scans and update definitions weekly.</li>
+      </ul>
+
+      <h3>💡 Bonus Tools</h3>
+      <ul>
+        <li>Password Managers: Bitwarden, KeePassXC.</li>
+        <li>File Encryption: VeraCrypt.</li>
+        <li>Secure Messaging: Signal, Telegram (Secret Chats).</li>
+      </ul>
+    </section>
+
+    <!-- AWARENESS -->
+    <section id="awareness">
+      <h2>Building Cyber Awareness</h2>
+      <p>Technology evolves fast — so should you. Learn, read, and stay up to date with digital trends.</p>
+      <ul>
+        <li>Follow cybersecurity blogs (e.g., KrebsOnSecurity, Wired Security).</li>
+        <li>Take free online courses on platforms like Coursera or Udemy.</li>
+        <li>Discuss safety with friends, family, or in school — awareness spreads protection.</li>
+      </ul>
+    </section>
+
+        <!-- FOOTER -->
+    <footer id="footer">
+      <hr />
+      <p><strong>Try These Interactive Resources:</strong></p>
+      <ul>
+        <li><a href="https://phishingquiz.withgoogle.com/" target="_blank">Google Phishing Quiz</a> — Learn how to spot fake emails.</li>
+        <li><a href="https://www.getsafeonline.org/" target="_blank">Get Safe Online</a> — Learn digital safety basics for everyone.</li>
+        <li><a href="https://cyberaware.gov.uk/" target="_blank">Cyber Aware (UK Gov)</a> — Tips for securing your online life.</li>
+      </ul>
+      <hr />
+      <p><strong>Learn More:</strong> Explore verified resources from 
+        <a href="https://staysafeonline.org" target="_blank">StaySafeOnline.org</a> or 
+        <a href="https://www.cisa.gov" target="_blank">CISA</a>.
+      </p>
+      <p>© 2025 Internet Safety Project | Be The Firewall 🔥</p>
+    </footer>
+
+  </main>
+</body>
 </html>
