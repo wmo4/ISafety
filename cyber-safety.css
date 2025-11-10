@@ -9,7 +9,7 @@ html[data-theme="light"] {
 html {
     background-color: var(--bg-color);
     color: var(--color);
-    cursor: url(icons8-cursor-32.svg), auto;
+    cursor: url(icons8-cursor-24.svg), auto;
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
 }
