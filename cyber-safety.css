@@ -33,7 +33,8 @@ button {
     right: 0rem;
     top: 0rem;
     background-color: var(--color);
-    border: 0px;
+    border: 0.625rem;
+    border-radius: 0.23rem;
     color: var(--bg-color);
     padding: 0px;
 }
