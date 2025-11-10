@@ -33,6 +33,7 @@ button {
     right: 0rem;
     top: 0rem;
     background-color: var(--color);
+    border: 0px;
 }
 .intro {
     max-width: 1200px;
