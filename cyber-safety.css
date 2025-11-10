@@ -13,10 +13,6 @@ html {
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
 }
-.leftSection {
-    float: left;
-    margin-left: 4rem;
-}
 .heading {
     text-align: center;
     padding: 4rem;
