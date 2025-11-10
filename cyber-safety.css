@@ -39,8 +39,6 @@ button {
     margin: 60px auto;
     text-align: center;
     padding: 30px;
-    border: 1px solid;
-    border-radius: 15px;
     box-shadow: 0 0 20px rgba(30, 144, 255, 0.4);
     animation: glowPulse 3s ease-in-out infinite;
     transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
