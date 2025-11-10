@@ -34,6 +34,7 @@ button {
     top: 0rem;
     background-color: var(--color);
     border: 0px;
+    color: var(--bg-color);
 }
 .intro {
     max-width: 1200px;
