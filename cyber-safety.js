@@ -19,7 +19,7 @@ if (themeToggleBtn) {
   });
 }
 
-// === Smooth Scroll for All Internal Links ===
+// === Smooth Scroll for All Internal Links (Custom Speed) ===
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", e => {
     const href = anchor.getAttribute("href");
@@ -27,20 +27,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(href);
     if (target) {
       e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth" });
+      smoothScrollTo(target, 1200); // 1200ms = 1.2 seconds (slower and smoother)
     }
   });
 });
 
-// === Subtle Animation on Scroll ===
-const sections = document.querySelectorAll("section, header, footer, .intro, .heading");
-const revealOnScroll = () => {
-  const triggerBottom = window.innerHeight * 0.85;
-  sections.forEach(section => {
-    const rect = section.getBoundingClientRect();
-    if (rect.top < triggerBottom) section.classList.add("visible");
-    else section.classList.remove("visible");
-  });
-};
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
+// === Smooth Scroll Function ===
+function smoothScrollTo(target, duration = 1000) {
+  const startY = window.scrollY;
+  const targetY = target.getBoundingClientRect().top + startY;
+  const diff = targetY - startY;
+  let startTime;
+
+  function easeInOutCubic(t) {
+    return t < 0.5
+      ? 4 * t * t * t
+      : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  }
+
+  function animation(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const ease = easeInOutCubic(progress);
+    window.scrollTo(0, startY + diff * ease);
+    if (timeElapsed < duration) requestAnimationFrame(animation);
+  }
+
+  requestAnimationFrame(animation);
+}
