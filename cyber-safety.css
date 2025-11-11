@@ -78,16 +78,19 @@ header:hover p {
 /* =========================================
    Sidebar (Contents Navigation)
 ========================================= */
+/* =========================================
+   Sidebar (Contents Navigation)
+========================================= */
 .sidebar {
   position: fixed;
   top: 6rem;
   left: 1rem;
-  width: 240px;
+  width: 190px; /* was 240px */
   max-height: 80vh;
   background: rgba(0, 0, 0, 0.25);
-  border-radius: 0.8rem;
-  padding: 1rem;
-  box-shadow: 0 0 15px rgba(0, 230, 255, 0.25);
+  border-radius: 0.7rem;
+  padding: 0.8rem;
+  box-shadow: 0 0 12px rgba(0, 230, 255, 0.25);
   backdrop-filter: blur(6px);
   z-index: 500;
   overflow-y: auto;
@@ -96,7 +99,7 @@ header:hover p {
 }
 
 .sidebar::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 .sidebar::-webkit-scrollbar-thumb {
@@ -111,13 +114,14 @@ header:hover p {
 }
 
 .sidebar li {
-  margin: 0.75rem 0;
+  margin: 0.6rem 0;
 }
 
 .sidebar a {
   color: var(--text-color);
   text-decoration: none;
   font-weight: 500;
+  font-size: 0.95rem; /* slightly smaller text */
   transition: color 0.2s, text-shadow 0.2s;
 }
 
@@ -126,11 +130,9 @@ header:hover p {
   text-shadow: 0 0 8px rgba(255, 255, 0, 0.6);
 }
 
-/* =========================================
-   Main Content Sections
-========================================= */
+/* Adjust main content offset */
 main {
-  margin-left: 280px;
+  margin-left: 220px; /* was 280px */
   padding: 2rem 4rem;
   max-width: 1000px;
 }
